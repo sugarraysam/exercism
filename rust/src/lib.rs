@@ -1,13 +1,5 @@
-pub fn hello() -> &'static str {
-    "Hello, World!"
-}
+// Not a real library.
+#![allow(dead_code)]
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_hello_world() {
-        assert_eq!("Hello, World!", hello());
-    }
-}
+mod hello_world;
+mod lasagna;

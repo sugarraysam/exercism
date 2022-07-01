@@ -1,16 +1,14 @@
 # These shell flags are REQUIRED for an early exit in case any program called by make errors!
-.SHELLFLAGS=-euo pipefail -c
+.SHELLFLAGS=-euo pipefail -c -O extglob
 SHELL := /bin/bash
 
 .PHONY: cargo check test clean
 
-cargo:
+check: cargo ## Run all checks
 	@cargo check
 	@cargo update
-
-check: cargo ## Run all checks
-	@cargo clippy --fix
-	@rustfmt --check --edition 2021 src/**/*.rs
+	@cargo clippy --fix --allow-dirty --allow-staged
+	@cargo fmt --all --check
 
 test: ## Run unit tests.
 	@cargo test

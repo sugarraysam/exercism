@@ -1,5 +1,5 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
+pub fn hello() -> &'static str {
+    "Hello, World!"
 }
 
 #[cfg(test)]
@@ -7,8 +7,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
+    fn test_hello_world() {
+        assert_eq!("Hello, World!", hello());
     }
 }

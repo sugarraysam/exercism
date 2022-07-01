@@ -1,0 +1,28 @@
+name: rust
+
+on:
+  push:
+    paths:
+      - "rust/**/*.rs"
+
+jobs:
+  build:
+    name: lint
+    runs-on: ubuntu-latest
+    # Rust tools already installed on VM: https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-Readme.md#rust-tools
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.0.2
+
+      - name: Install toolchain
+        run: rustup toolchain install nightly && rustup default toolchain nightly
+
+      - name: Add clippy and rustfmt
+        run: rustup add component rustfmt clippy --toolchain nightly
+
+      - name: Runs rustfmt and clippy
+        run: |
+          cd rust && make check
+      - name: Runs rust unit tests
+        run: |
+          cd rust && make test

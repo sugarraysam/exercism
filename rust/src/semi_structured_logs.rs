@@ -1,7 +1,7 @@
 use std::fmt;
 
-#[derive(Clone, PartialEq, Debug)]
-enum LogLevel {
+#[derive(Clone, PartialEq, Eq, Debug)]
+pub enum LogLevel {
     Info,
     Warning,
     Error,
@@ -17,18 +17,18 @@ impl fmt::Display for LogLevel {
     }
 }
 
-fn log(level: LogLevel, message: &str) -> String {
+pub fn log(level: LogLevel, message: &str) -> String {
     format!("[{level}]: {message}")
 }
 
-fn info(message: &str) -> String {
+pub fn info(message: &str) -> String {
     format!("[INFO]: {message}")
 }
 
-fn warn(message: &str) -> String {
+pub fn warn(message: &str) -> String {
     format!("[WARNING]: {message}")
 }
 
-fn error(message: &str) -> String {
+pub fn error(message: &str) -> String {
     format!("[ERROR]: {message}")
 }

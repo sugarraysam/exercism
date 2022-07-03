@@ -41,14 +41,11 @@ fn sublist_unequal_len<T: PartialEq>(_first_list: &[T], _second_list: &[T]) -> C
     let n_to_match = len1;
     let mut counter = n_to_match;
 
-    while p1 < len1 && p2 < len2 && len2 - start >= n_to_match {
+    while p1 < len1 && p2 < len2 && len2 - start >= n_to_match && counter > 0 {
         if _first_list[p1] == _second_list[p2] {
             p1 += 1;
             p2 += 1;
             counter -= 1;
-            if counter == 0 {
-                return Comparison::Sublist;
-            }
         } else {
             counter = n_to_match;
             start += 1;

@@ -1,4 +1,4 @@
-fn hello() -> &'static str {
+pub fn hello() -> &'static str {
     "Hello, World!"
 }
 

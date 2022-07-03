@@ -2,8 +2,10 @@
 #![allow(dead_code)]
 
 mod assembly_line;
+mod health_statistics;
 mod hello_world;
 mod lasagna;
+mod low_power_embedded_game;
 mod resistor_color;
 mod semi_structured_logs;
 mod sublist;

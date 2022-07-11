@@ -1,5 +1,6 @@
 const DEFAULT_HEALTH: u32 = 100;
 const DEFAULT_MANA: u32 = 100;
+
 pub struct Player {
     pub health: u32,
     pub mana: Option<u32>,
@@ -24,18 +25,19 @@ impl Player {
     }
 
     pub fn cast_spell(&mut self, mana_cost: u32) -> u32 {
-        if let Some(mana_pool) = self.mana {
-            if mana_pool > mana_cost {
+        match self.mana {
+            Some(mana_pool) if mana_pool >= mana_cost => {
                 self.mana = Some(mana_pool - mana_cost);
-                return mana_cost * 2;
+                mana_cost * 2
             }
             // insufficient mana
-            return 0;
+            Some(_) => 0,
+            // not a wizard yet
+            None => {
+                self.health = self.health.saturating_sub(mana_cost);
+                0
+            }
         }
-
-        // no mana
-        self.health = self.health.saturating_sub(mana_cost);
-        0
     }
 }
 

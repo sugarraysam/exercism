@@ -2,6 +2,7 @@
 #![allow(dead_code)]
 
 mod assembly_line;
+mod fibonacci;
 mod health_statistics;
 mod hello_world;
 mod lasagna;

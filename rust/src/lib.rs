@@ -10,5 +10,6 @@ mod low_power_embedded_game;
 mod magazine;
 mod resistor_color;
 mod role_playing;
+mod rpn_calc;
 mod semi_structured_logs;
 mod sublist;

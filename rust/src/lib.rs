@@ -9,6 +9,7 @@ mod lasagna;
 mod low_power_embedded_game;
 mod magazine;
 mod resistor_color;
+mod rev_string;
 mod role_playing;
 mod rpn_calc;
 mod semi_structured_logs;

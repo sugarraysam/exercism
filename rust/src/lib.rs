@@ -3,6 +3,7 @@
 
 mod assembly_line;
 mod fibonacci;
+mod gigasecond;
 mod health_statistics;
 mod hello_world;
 mod lasagna;
